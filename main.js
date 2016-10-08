@@ -24,6 +24,7 @@ var JSON = {
 	]
 }
 
-ReactDOM.render(<Slider contentObj={JSON}><Button /></Slider>,
-
-document.getElementById('app'));
+ReactDOM.render(
+	<Slider contentObj={JSON}><Button /></Slider>,
+		document.getElementById('app')
+	);

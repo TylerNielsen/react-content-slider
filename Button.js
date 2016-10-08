@@ -2,13 +2,13 @@ var React = require('react');
 
 var Button = React.createClass({
 	propTypes: {
-		content : React.PropTypes.object.isRequired
+		contentObj: React.PropTypes.object
 	},
-	
+
 	render: function () {
-		var title = this.props.content.title;
-		var body = this.props.content.body;
-		
+		var title = this.props.contentObj.data[this.props.currentItem].title;
+		var body = this.props.contentObj.data[this.props.currentItem].body;
+
 		return (
 			<div>
 				<span className="slider-counter">{title}</span>

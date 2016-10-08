@@ -8,22 +8,21 @@ var Button = require('./Button.js');
 //--------------------------------------------------
 
 var Slider = React.createClass({
-
 	//Set up component variables
 	propTypes : {
-		contentObj: React.PropTypes.object
+		contentObj: React.PropTypes.object.isRequired
 	},
-	
+
 	getDefaultProps: function() {
 		return {
 			useArrows: true,
 			useJump: true
 		}
 	},
-	
+
 	getInitialState: function() {
 		totalItems = this.props.contentObj.data.length;
-	
+
 		return {
 			currentItem: 0,
 			totalItems: totalItems
@@ -46,34 +45,35 @@ var Slider = React.createClass({
 			currentItem: next
 		});
 	},
-	
+
 	jumpTo: function(e) {
 		var next = this.target.value;
 		this.setState({
 			currentItem: next
 		});
 	},
-		
+
 	render: function () {
 		var directionalArrows = [
 			<div key="1" className="slider-arrow slider-arrow-left" onClick={this.decrement}>&lt;</div>,
 			<div key="2" className="slider-arrow slider-arrow-right" onClick={this.increment}>&gt;</div>
 		];
-		
+
 		var jumpButtons = <SliderJumpButtons totalItems={this.state.totalItems} />;
-		
+
 		const SliderTemplate = React.Children.map(this.props.children,
 			(child) => React.cloneElement(child, {
-      			 content: this.props.contentObj.data[this.props.currentItem]
+      			 contentObj: this.props.contentObj,
+						 currentItem: this.state.currentItem
       		})
     	);
-		
+
 		return (
 			<div className="slider-container">
 				{this.props.useArrows ? directionalArrows : null}
 				{SliderTemplate}
-		    	{this.props.useJump ? jumpButtons : null}
-		    </div>
+		    {this.props.useJump ? jumpButtons : null}
+		  </div>
 		);
 	}
 });
@@ -89,7 +89,7 @@ var SliderJumpButtons = React.createClass({
 	propTypes: {
 		totalItems: React.PropTypes.number.isRequired
 	},
-	
+
 	generateButtons: function () {
 		var max = this.props.totalItems;
 		var buttons = [];
@@ -98,12 +98,12 @@ var SliderJumpButtons = React.createClass({
 		}
 		return buttons;
 	},
-	
+
 	render: function () {
 		return (
 			<div className="slider-jumpTo-container">
 				{this.generateButtons()}
-			</div>			
+			</div>
 		);
 	}
 });

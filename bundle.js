@@ -3,13 +3,13 @@ var React = require('react');
 
 var Button = React.createClass({displayName: "Button",
 	propTypes: {
-		content : React.PropTypes.object.isRequired
+		contentObj: React.PropTypes.object
 	},
-	
+
 	render: function () {
-		var title = this.props.content.title;
-		var body = this.props.content.body;
-		
+		var title = this.props.contentObj.data[this.props.currentItem].title;
+		var body = this.props.contentObj.data[this.props.currentItem].body;
+
 		return (
 			React.createElement("div", null, 
 				React.createElement("span", {className: "slider-counter"}, title), 
@@ -33,22 +33,21 @@ var Button = require('./Button.js');
 //--------------------------------------------------
 
 var Slider = React.createClass({displayName: "Slider",
-
 	//Set up component variables
 	propTypes : {
-		contentObj: React.PropTypes.object
+		contentObj: React.PropTypes.object.isRequired
 	},
-	
+
 	getDefaultProps: function() {
 		return {
 			useArrows: true,
 			useJump: true
 		}
 	},
-	
+
 	getInitialState: function() {
 		totalItems = this.props.contentObj.data.length;
-	
+
 		return {
 			currentItem: 0,
 			totalItems: totalItems
@@ -71,34 +70,35 @@ var Slider = React.createClass({displayName: "Slider",
 			currentItem: next
 		});
 	},
-	
+
 	jumpTo: function(e) {
 		var next = this.target.value;
 		this.setState({
 			currentItem: next
 		});
 	},
-		
+
 	render: function () {
 		var directionalArrows = [
 			React.createElement("div", {key: "1", className: "slider-arrow slider-arrow-left", onClick: this.decrement}, "<"),
 			React.createElement("div", {key: "2", className: "slider-arrow slider-arrow-right", onClick: this.increment}, ">")
 		];
-		
+
 		var jumpButtons = React.createElement(SliderJumpButtons, {totalItems: this.state.totalItems});
-		
+
 		const SliderTemplate = React.Children.map(this.props.children,
 			function(child)  {return React.cloneElement(child, {
-      			 content: this.props.contentObj.data[this.props.currentItem]
+      			 contentObj: this.props.contentObj,
+						 currentItem: this.state.currentItem
       		});}.bind(this)
     	);
-		
+
 		return (
 			React.createElement("div", {className: "slider-container"}, 
 				this.props.useArrows ? directionalArrows : null, 
 				SliderTemplate, 
-		    	this.props.useJump ? jumpButtons : null
-		    )
+		    this.props.useJump ? jumpButtons : null
+		  )
 		);
 	}
 });
@@ -114,7 +114,7 @@ var SliderJumpButtons = React.createClass({displayName: "SliderJumpButtons",
 	propTypes: {
 		totalItems: React.PropTypes.number.isRequired
 	},
-	
+
 	generateButtons: function () {
 		var max = this.props.totalItems;
 		var buttons = [];
@@ -123,12 +123,12 @@ var SliderJumpButtons = React.createClass({displayName: "SliderJumpButtons",
 		}
 		return buttons;
 	},
-	
+
 	render: function () {
 		return (
 			React.createElement("div", {className: "slider-jumpTo-container"}, 
 				this.generateButtons()
-			)			
+			)
 		);
 	}
 });
@@ -162,9 +162,10 @@ var JSON = {
 	]
 }
 
-ReactDOM.render(React.createElement(Slider, {contentObj: JSON}, React.createElement(Button, null)),
-
-document.getElementById('app'));
+ReactDOM.render(
+	React.createElement(Slider, {contentObj: JSON}, React.createElement(Button, null)),
+		document.getElementById('app')
+	);
 
 },{"./Button.js":1,"./Sliders.js":2,"react":173,"react-dom":4}],4:[function(require,module,exports){
 'use strict';
