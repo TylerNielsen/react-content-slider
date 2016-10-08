@@ -2,12 +2,12 @@ var React = require('react');
 
 var Button = React.createClass({
 	propTypes: {
-		contentObj: React.PropTypes.object
+		content: React.PropTypes.object
 	},
 
 	render: function () {
-		var title = this.props.contentObj.data[this.props.currentItem].title;
-		var body = this.props.contentObj.data[this.props.currentItem].body;
+		var title = this.props.content.title;
+		var body = this.props.content.body;
 
 		return (
 			<div>

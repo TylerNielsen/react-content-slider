@@ -63,8 +63,7 @@ var Slider = React.createClass({
 
 		const SliderTemplate = React.Children.map(this.props.children,
 			(child) => React.cloneElement(child, {
-      			 contentObj: this.props.contentObj,
-						 currentItem: this.state.currentItem
+      			 content: this.props.contentObj.data[this.state.currentItem]
       		})
     	);
 

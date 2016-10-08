@@ -3,12 +3,12 @@ var React = require('react');
 
 var Button = React.createClass({displayName: "Button",
 	propTypes: {
-		contentObj: React.PropTypes.object
+		content: React.PropTypes.object
 	},
 
 	render: function () {
-		var title = this.props.contentObj.data[this.props.currentItem].title;
-		var body = this.props.contentObj.data[this.props.currentItem].body;
+		var title = this.props.content.title;
+		var body = this.props.content.body;
 
 		return (
 			React.createElement("div", null, 
@@ -88,8 +88,7 @@ var Slider = React.createClass({displayName: "Slider",
 
 		const SliderTemplate = React.Children.map(this.props.children,
 			function(child)  {return React.cloneElement(child, {
-      			 contentObj: this.props.contentObj,
-						 currentItem: this.state.currentItem
+      			 content: this.props.contentObj.data[this.state.currentItem]
       		});}.bind(this)
     	);
 
