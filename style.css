@@ -1,0 +1,28 @@
+
+.slider-container{
+	margin: 0 auto;
+	width: 600px;
+}
+.slider-arrow{
+	font-size:60px;
+	color: gray;
+	cursor:pointer;
+}
+.slider-arrow:hover{
+	color:black;
+}
+.slider-arrow-right{
+	float:right;
+}
+.slider-arrow-left{
+	float:left;
+}
+.slider-counter{
+	font-size:80px;
+	color:gray;
+	font-family: "helvetica";
+}
+.slider-jumpTo-container > div{
+	display:inline-block;
+	padding: 6px;
+}

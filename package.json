@@ -1,0 +1,27 @@
+{
+  "name": "tsn_sliders",
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "es6": true
+        }
+      ]
+    ]
+  },
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+  		"build" : "browserify main.js -o bundle.js",
+  		"watch" : "watchify main.js -o bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
