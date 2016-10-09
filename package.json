@@ -14,7 +14,10 @@
   "main": "main.js",
   "dependencies": {
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-css-transition-replace": "^15.3.2",
+    "browserify": "*",
+    "watchify": "*"
   },
   "devDependencies": {},
   "scripts": {
