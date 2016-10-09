@@ -13,11 +13,11 @@ var SliderIndexButtons = React.createClass({
 	},
 
 	generateButtons: function () {
-		var max = this.props.totalItems;
+		var totalItems = this.props.totalItems;
 		var current = this.props.currentItem;
 		var buttons = [];
 
-		for (var i = 0; i < max; i++) {
+		for (var i = 0; i < totalItems; i++) {
 			var classes = "slider-jump-button";
 
 			//Add a separate class to the jump button for the currently selected item.
