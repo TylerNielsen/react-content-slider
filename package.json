@@ -15,14 +15,12 @@
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-css-transition-replace": "^15.3.2",
-    "browserify": "*",
-    "watchify": "*"
+    "react-css-transition-replace": "^15.3.2"
   },
   "devDependencies": {},
   "scripts": {
-  		"build" : "browserify main.js -o bundle.js",
-  		"watch" : "watchify main.js -o bundle.js"
+  		"build" : "browserify example/main.js -o example/bundle.js",
+  		"watch" : "watchify example/main.js -o example/bundle.js"
   },
   "author": "",
   "license": "ISC",
