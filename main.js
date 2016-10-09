@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Slider = require('./Sliders.js');
-var Button = require('./Button.js');
+var Slider = require('./Slider.js');
+var SimpleTemplate = require('./SimpleTemplate.js');
 
 var JSON = {
 	"data": [
@@ -25,6 +25,8 @@ var JSON = {
 }
 
 ReactDOM.render(
-	<Slider contentObj={JSON}><Button /></Slider>,
+	<Slider contentObj={JSON}>
+			<SimpleTemplate />
+	</Slider>,
 		document.getElementById('app')
 	);

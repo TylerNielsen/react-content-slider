@@ -5,7 +5,7 @@
 }
 .slider-arrow{
 	font-size:60px;
-	color: gray;
+	color: darkgray;
 	cursor:pointer;
 }
 .slider-arrow:hover{
@@ -17,12 +17,27 @@
 .slider-arrow-left{
 	float:left;
 }
+.slider-arrow-inactive,
+.slider-arrow-inactive:hover{
+	cursor:default;
+	color: lightgray;
+}
+
+
 .slider-counter{
 	font-size:80px;
-	color:gray;
+	color:darkgray;
 	font-family: "helvetica";
 }
 .slider-jumpTo-container > div{
 	display:inline-block;
 	padding: 6px;
+	cursor:pointer;
+}
+.slider-jump-button{
+	color:darkgray;
+}
+.slider-jump-button.current-item{
+	font-weight:bold;
+	color: black;
 }
