@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Slider = require('../src/Slider.js');
-var SimpleTemplate = require('./SimpleTemplate.js');
+var MySliderTemplate = require('./MySliderTemplate.js');
 
 var content = [
 		{
@@ -25,7 +25,7 @@ var content = [
 
 ReactDOM.render(
 	<Slider content={content}>
-			<SimpleTemplate />
+			<MySliderTemplate />
 	</Slider>,
 		document.getElementById('app')
 	);

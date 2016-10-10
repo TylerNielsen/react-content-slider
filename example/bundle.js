@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var React = require('react');
 
-var SimpleTemplate = React.createClass({displayName: "SimpleTemplate",
+var MySliderTemplate = React.createClass({displayName: "MySliderTemplate",
 	propTypes: {  //Since these props are introduced via createElement, making them required produces an error.
 		content: React.PropTypes.object,
 	},
@@ -20,13 +20,13 @@ var SimpleTemplate = React.createClass({displayName: "SimpleTemplate",
 	}
 });
 
-module.exports = SimpleTemplate;
+module.exports = MySliderTemplate;
 
 },{"react":172}],2:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Slider = require('../src/Slider.js');
-var SimpleTemplate = require('./SimpleTemplate.js');
+var MySliderTemplate = require('./MySliderTemplate.js');
 
 var content = [
 		{
@@ -50,12 +50,12 @@ var content = [
 
 ReactDOM.render(
 	React.createElement(Slider, {content: content}, 
-			React.createElement(SimpleTemplate, null)
+			React.createElement(MySliderTemplate, null)
 	),
 		document.getElementById('app')
 	);
 
-},{"../src/Slider.js":173,"./SimpleTemplate.js":1,"react":172,"react-dom":3}],3:[function(require,module,exports){
+},{"../src/Slider.js":173,"./MySliderTemplate.js":1,"react":172,"react-dom":3}],3:[function(require,module,exports){
 'use strict';
 
 module.exports = require('react/lib/ReactDOM');
