@@ -20758,11 +20758,6 @@ module.exports = Slider;
 },{"./SliderArrow.js":174,"./SliderIndexButtons":175,"react":172}],174:[function(require,module,exports){
 var React = require('react');
 
-//--------------------------------------------------
-// Class: SliderArrow
-// Description:
-//
-//--------------------------------------------------
 var SliderArrow = React.createClass({displayName: "SliderArrow",
 	PropTypes: {
 		currentItem: React.PropTypes.number.isRequired,

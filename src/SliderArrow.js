@@ -1,10 +1,5 @@
 var React = require('react');
 
-//--------------------------------------------------
-// Class: SliderArrow
-// Description:
-//
-//--------------------------------------------------
 var SliderArrow = React.createClass({
 	PropTypes: {
 		currentItem: React.PropTypes.number.isRequired,
