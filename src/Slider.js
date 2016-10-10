@@ -1,16 +1,29 @@
 var React = require('react');
 var SliderArrow = require('./SliderArrow.js');
 var SliderIndexButtons = require('./SliderIndexButtons');
-
 //--------------------------------------------------
-// Class: Slider
-// Description:
+// ReactClass: Slider
 //
+// Description: This component creates a content slider by accepting an array of objects and expecting
+// 							a child component that will display a single object of your content object array. <Slider>
+//							will handle generating controls to iterate through the content.
+//
+// Props:
+//    content - (input/object/required) - content should be an array of objects, with each object
+//																				contaiing the same data stucture.
+//		useArrows - (config/bool/default=true) -  set to false if you don't want to include
+//																					  	arrows on your slider to move through content.
+//		useTextArrows - (config/bool/default=true) - set to false if you plan to plan to inclue an image for
+//																								 the arrow class.
+//		useIndex - (config/bool/default=true) - set to false if you don't want to include an index
+//																						control to jump to specific content.
+//		useIndexNumbers - (config/bool/default=true) - 	Set to fase if you plan on configuring a generic style
+//   																					 				in .slider-index-button.
 //--------------------------------------------------
 
 var Slider = React.createClass({
 	propTypes : {
-		contentObj: React.PropTypes.object.isRequired,
+		content: React.PropTypes.array.isRequired,
 		useArrows: React.PropTypes.bool,
 		useTextArrows: React.PropTypes.bool,
 		useIndex: React.PropTypes.bool,
@@ -29,7 +42,7 @@ var Slider = React.createClass({
 	getInitialState: function() {
 		return {
 			currentItem: 0,
-			totalItems: this.props.contentObj.data.length
+			totalItems: this.props.content.length
 		};
 	},
 
@@ -92,7 +105,7 @@ var Slider = React.createClass({
 		used to render the slider content (should be a child of this component) */
 		const SliderTemplate = React.Children.map(this.props.children,
 			(child) => React.cloneElement(child, {
-      			 content: this.props.contentObj.data[this.state.currentItem],
+      			 content: this.props.content[this.state.currentItem],
 						 currentItem: this.state.currentItem
       		})
     	);

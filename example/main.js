@@ -3,8 +3,7 @@ var ReactDOM = require('react-dom');
 var Slider = require('../src/Slider.js');
 var SimpleTemplate = require('./SimpleTemplate.js');
 
-var JSON = {
-	"data": [
+var content = [
 		{
 			"title": "First Title",
 			"body": "Lorem Ipsum something or other content"
@@ -21,11 +20,11 @@ var JSON = {
 			"title": "Fourth Title",
 			"body": "Fourth times a charm as well."
 		}
-	]
-}
+]
+
 
 ReactDOM.render(
-	<Slider contentObj={JSON}>
+	<Slider content={content}>
 			<SimpleTemplate />
 	</Slider>,
 		document.getElementById('app')

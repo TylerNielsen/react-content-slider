@@ -1,9 +1,4 @@
 var React = require('react');
-//--------------------------------------------------
-// Class: SliderIndexButtons
-// Description:
-//
-//--------------------------------------------------
 
 var SliderIndexButtons = React.createClass({
 	propTypes: {
