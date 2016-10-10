@@ -19,7 +19,7 @@ var JSON = {
 		},
 		{
 			"title": "Fourth Title",
-			"body": "Fourth times a charm."
+			"body": "Fourth times a charm as well."
 		}
 	]
 }

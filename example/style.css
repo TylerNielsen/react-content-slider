@@ -5,47 +5,11 @@ h1{
 	padding: 0 0 0 10px;
 	margin: 0 0 30px;
 }
-.slider-container{
-	margin: 0 auto;
-	width: 600px;
-}
-.slider-arrow{
-	font-size:60px;
-	color: darkgray;
-	cursor:pointer;
-}
-.slider-arrow:hover{
-	color:black;
-}
-.slider-arrow-right{
-	float:right;
-}
-.slider-arrow-left{
-	float:left;
-}
-.slider-arrow-inactive,
-.slider-arrow-inactive:hover{
-	cursor:default;
-	color: #e3e3e3;
-}
-.slider-counter{
+.mySlider-title{
 	font-size:80px;
 	color:darkgray;
 	font-family: "helvetica";
 }
-.slider-jumpTo-container > div{
-	display:inline-block;
-	padding: 6px;
-	cursor:pointer;
-}
-.slider-jump-button{
-	color:darkgray;
-}
-.slider-jump-button.current-item{
-	font-weight:bold;
-	color: black;
-}
-
 
 /* STYLES FOR react-css-transition-replace   */
 .cross-fade-leave {

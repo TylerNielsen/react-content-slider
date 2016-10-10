@@ -18,18 +18,18 @@ var SliderIndexButtons = React.createClass({
 		var buttons = [];
 
 		for (var i = 0; i < totalItems; i++) {
-			var classes = "slider-jump-button";
+			var classes = "slider-index-button";
 
-			//Add a separate class to the jump button for the currently selected item.
+			//Add a separate class to the index button for the currently selected item.
 			if (current == i) { classes += " current-item" };
 
 			buttons.push(
 				<div
 					key={i}
 					className={classes}
-					onClick={this.props.handleClick.bind(null,i)
-				}>
-				{i+1}
+					onClick={this.props.handleClick.bind(null,i)}
+				>
+				{this.props.useNumericIndex ? i+1 : null}
 				</div>);
 		}
 		return buttons;
@@ -37,7 +37,7 @@ var SliderIndexButtons = React.createClass({
 
 	render: function () {
 		return (
-			<div className="slider-jumpTo-container">
+			<div className="slider-index-container">
 				{this.generateButtons()}
 			</div>
 		);
